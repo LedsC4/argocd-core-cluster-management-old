@@ -5,8 +5,6 @@ and manage fleet of Kubernetes clusters.
 
 The repository is used to power demo presented at Kubecon EU 2023. See https://sched.co/1HySi for more information.
 
-![logo](logo.png)
-
 ## Overview
 
 Argo CD is used by both application developers and cluster administrators. The latter use cases are slightly different from the former.
@@ -54,7 +52,7 @@ as well as ApplicationSet definition that automates application creation.
 Let's go ahead apply the Argo CD manifests to the cluster:
 
 ```bash
-$ kustomize build https://github.com/alexmt/argocd-core-cluster-management//clusters/base/argocd | kubectl apply -f -
+$ kustomize build https://github.com/ledsc4/argocd-core-cluster-management//clusters/base/argocd | kubectl apply -f -
 ```
 
 The running a command above, you should see the following applications in Argo CD namespace:
@@ -79,13 +77,13 @@ Open the URL in your browser, and you should see the following screen:
 ![argocd-ui](argocd-ui.png)
 
 So how exactly Argo CD applications get created? This logic is declaratively defined in the ApplicationSet resource located in
-[applications.yaml](https://github.com/alexmt/argocd-core-cluster-management/blob/master/clusters/base/argocd/applications.yaml) file. The application set
+[applications.yaml](https://github.com/ledsc4/argocd-core-cluster-management/blob/master/clusters/base/argocd/applications.yaml) file. The application set
 is taking care of all three use cases we identified earlier, so let's explore it step by step staring from the most basic use case:
 
 
 ```yaml
 - git:
-    repoURL: https://github.com/alexmt/argocd-core-cluster-management.git
+    repoURL: https://github.com/ledsc4/argocd-core-cluster-management.git
     directories:
     - path: clusters/base/*
 ```
@@ -130,7 +128,7 @@ Finally the convention is defined in the ApplicationSet resource and implemented
     - clusters: {}
     # produces argocd app per directory in clusters/base
     - git:
-        repoURL: &repo https://github.com/alexmt/argocd-core-cluster-management.git
+        repoURL: &repo https://github.com/ledsc4/argocd-core-cluster-management.git
         directories:
         - path: clusters/base/*
 - merge:
@@ -156,7 +154,7 @@ Run the following command to assign our cluster to the `test` group:
 
 
 ```bash
-$ kustomize build https://github.com/alexmt/argocd-core-cluster-management//clusters/groups/test/argocd | kubectl apply -f -
+$ kustomize build https://github.com/ledsc4/argocd-core-cluster-management//clusters/groups/test/argocd | kubectl apply -f -
 ```
 
 After applying the manifests you should see that the `grafana` application now uses manifests from `clusters/groups/test/grafana` directory:
