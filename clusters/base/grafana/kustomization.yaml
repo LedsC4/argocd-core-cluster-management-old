@@ -4,6 +4,11 @@ kind: Kustomization
 helmGlobals:
   chartHome: ../../charts
 
+spec:
+  source:
+    kustomize:
+      namespace: external-secrets
+
 helmCharts:
   - name: grafana
     repo: https://grafana.github.io/helm-charts
