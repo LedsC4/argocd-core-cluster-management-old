@@ -5,7 +5,7 @@ helmGlobals:
   chartHome: ../../charts
 
 helmCharts:
-  - name: grafana
+  - releaseName: grafana
     repo: https://grafana.github.io/helm-charts
     version: 7.3.2
     valuesFile: values.yaml
