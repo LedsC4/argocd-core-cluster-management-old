@@ -9,7 +9,7 @@ resources:
 # argocd namespace
 - argocd-ns.yaml
 # argocd core installation manifests
-- https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.1/manifests/install.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.9/manifests/install.yaml
 # application set that automates applications management 
 - applicationset.yaml
 # cluster metadata
