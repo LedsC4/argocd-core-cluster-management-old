@@ -48,6 +48,8 @@ spec:
           env:
             - name: AVP_SECRET
               value: azure-key-vault-sp
+            - name: AVP_TYPE
+                value: azurekeyvault
       destination:
         server: '{{server}}'
         namespace: argocd
