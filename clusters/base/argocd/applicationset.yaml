@@ -44,7 +44,6 @@ spec:
         repoURL: *repo
         path: '{{path}}'
         plugin:
-          name: avp
           env:
             - name: AVP_SECRET
               value: azure-key-vault-sp
