@@ -12,8 +12,13 @@ resources:
 - in-cluster.yaml
 # argocd project for system applications
 - system-project.yaml
+# https://github.com/argoproj-labs/argocd-vault-plugin/tree/main/manifests/cmp-sidecar
+- vault-plugin/cmp-plugin.yaml
 
 patches:
 - path: argocd-cm.yaml
+
+patchesStrategicMerge:
+- vault-plugin/argocd-repo-server.yaml
 
 namespace: argocd
