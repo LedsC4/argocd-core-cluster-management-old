@@ -43,13 +43,13 @@ spec:
       source:
         repoURL: *repo
         path: '{{path}}'
-        # plugin:
-        #   name: argocd-vault-plugin-kustomize
-        #   env:
-        #     - name: AVP_SECRET
-        #       value: azure-key-vault-sp
-        #     - name: AVP_TYPE
-        #       value: azurekeyvault
+        plugin:
+          name: argocd-vault-plugin-kustomize
+          env:
+            - name: AVP_SECRET
+              value: azure-key-vault-sp
+            - name: AVP_TYPE
+              value: azurekeyvault
       destination:
         server: '{{server}}'
         namespace: argocd
